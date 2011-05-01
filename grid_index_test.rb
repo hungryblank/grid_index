@@ -14,7 +14,6 @@ class TC_MyTest < Test::Unit::TestCase
                                 element.height)
     index = GridIndex.new(20, 20)
     index = index.add(element)
-    p index
     assert index.add(other_element).is_a?(GridIndex)
   end
 
