@@ -8,9 +8,7 @@ class GridIndex
   #  bin_1(3)
   #  => 7
   def self.bin_1(length)
-    num = 1
-    (length - 1).times { num = (1 | num << 1) }
-    num
+    (1 << length) - 1
   end
 
   #initialize a surface with with and height
