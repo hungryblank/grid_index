@@ -36,7 +36,7 @@ class GridIndex
     self
   end
 
-  def inspect
+  def print
     puts (@rows.map { |row| row.to_s(2).rjust(@width, '0') })
   end
 
