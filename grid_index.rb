@@ -25,14 +25,26 @@ class GridIndex
   #  element.width  => extension of element on x axis
   #  element.length => extension of element on y axis
   def add(element)
-    bin_row = GridIndex.bin_1(element.width) << element.x
-    element_rows = ((element.y)..(element.y + element.height - 1)).to_a
-    element_rows.each do |y|
+    bin_row = bin_row(element)
+    element_rows(element).each { |y|
       return false if ((@rows[y] & bin_row) != 0)
-    end
-    element_rows.each do |y|
+    }.each { |y|
       @rows[y] = @rows[y] | bin_row
-    end
+    }
+    self
+  end
+
+  def bin_row(element)
+    GridIndex.bin_1(element.width) << element.x
+  end
+
+  def element_rows(element)
+    ((element.y)..(element.y + element.height - 1))
+  end
+
+  def delete(element)
+    bin_row = bin_row(element)
+    element_rows(element).each { |y| @rows[y] = @rows[y] - bin_row }
     self
   end
 

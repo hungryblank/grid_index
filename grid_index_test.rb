@@ -24,4 +24,12 @@ class TC_MyTest < Test::Unit::TestCase
     assert !index.add(element)
   end
 
+  def test_delete
+    element = Element.new(10, 5, 3, 2)
+    index = GridIndex.new(20, 20)
+    index = index.add(element)
+    index = index.delete(element)
+    assert index.add(element).is_a?(GridIndex)
+  end
+
 end
