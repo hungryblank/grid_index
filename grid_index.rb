@@ -45,7 +45,7 @@ class GridIndex
 
   def delete(element)
     bin_row = bin_row(element)
-    element_rows(element).each { |y| @rows[y] = @rows[y] - bin_row }
+    element_rows(element).each { |y| @rows[y] = @rows[y] ^ bin_row }
     self
   end
 
