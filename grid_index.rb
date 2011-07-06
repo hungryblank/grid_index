@@ -15,7 +15,7 @@ class GridIndex
   def initialize(width, height)
     @width = width
     @height = height
-    @rows = (1..height).map { 0 }
+    @rows = [0] * height
   end
 
   #returns the new index if the element doesn't overlap on
@@ -50,7 +50,7 @@ class GridIndex
   end
 
   def print
-    puts (@rows.map { |row| row.to_s(2).rjust(@width, '0') })
+    puts(@rows.map { |row| row.to_s(2).rjust(@width, '0') })
   end
 
 end
