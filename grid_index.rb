@@ -4,14 +4,14 @@
 
 class GridIndex
 
-  #given a length returns it's binary representation
+  #given a length returns its binary representation
   #  bin_1(3)
   #  => 7
   def self.bin_1(length)
     (1 << length) - 1
   end
 
-  #initialize a surface with with and height
+  #initialize a surface with width and height
   def initialize(width, height)
     @width = width
     @height = height
@@ -19,7 +19,8 @@ class GridIndex
   end
 
   #returns the new index if the element doesn't overlap on
-  #the current index element must provide the following interface
+  #the current index otherwise returns false
+  #element must provide the following interface
   #  element.x => position of element on x axis
   #  element.y => position of element on y axis
   #  element.width  => extension of element on x axis

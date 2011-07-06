@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'grid_index'
 
-class TC_MyTest < Test::Unit::TestCase
+class GridIndexTest < Test::Unit::TestCase
 
   class Element < Struct.new(:x, :y, :width, :height)
   end
